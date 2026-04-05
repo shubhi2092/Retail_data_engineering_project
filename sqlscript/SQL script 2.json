@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 2",
+	"properties": {
+		"content": {
+			"query": "create database retailpoc\n\nUSE retailpoc\n\nCREATE EXTERNAL DATA SOURCE blob_retail_datasource\nWITH(\n    LOCATION = 'https://retial1.blob.core.windows.net/retailproject'\n)\n\nCREATE EXTERNAL FILE FORMAT ParquetFormat\nWITH (\n    FORMAT_TYPE =  PARQUET\n)\n\nCREATE EXTERNAL TABLE df_revenue (\n    event_date DATE,\n    daily_revenue FLOAT,\n    total_purchases INT\n)\n\nWITH (\n    LOCATION = '/gold/revenue/',\n    DATA_SOURCE = blob_retail_datasource,\n    FILE_FORMAT = ParquetFormat\n);\n\n\nSELECT * from df_revenue;\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "retailpoc",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

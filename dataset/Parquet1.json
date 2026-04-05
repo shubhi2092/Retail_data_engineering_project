@@ -1,0 +1,62 @@
+{
+	"name": "Parquet1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "pocretailsynapse-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "bronze",
+				"fileSystem": "retailproject"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "event_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "event_type",
+				"type": "UTF8"
+			},
+			{
+				"name": "customer_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "event_timestamp",
+				"type": "UTF8"
+			},
+			{
+				"name": "payment_method",
+				"type": "UTF8"
+			},
+			{
+				"name": "product_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "product_category",
+				"type": "UTF8"
+			},
+			{
+				"name": "amount",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "location",
+				"type": "UTF8"
+			},
+			{
+				"name": "status",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
